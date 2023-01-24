@@ -16,6 +16,6 @@ public class CategoriaMapper  implements RowMapper<Categoria> {
         categoria.setFecha(rs.getDate("Fecha"));
         categoria.setIdCategoria(rs.getInt("IdCategoria"));
         categoria.setNombre(rs.getString("Nombre"));
-        return null;
+        return categoria;
     }
 }

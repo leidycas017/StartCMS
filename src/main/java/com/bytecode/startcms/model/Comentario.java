@@ -8,7 +8,7 @@ public class Comentario {
     private long IdPost;
     private long IdUsuario;
     private Date Fecha;
-    private long Respuesta;
+    private String Respuesta = null;
 
     public long getIdComentario() {
         return IdComentario;
@@ -50,11 +50,11 @@ public class Comentario {
         Fecha = fecha;
     }
 
-    public long getRespuesta() {
+    public String getRespuesta() {
         return Respuesta;
     }
 
-    public void setRespuesta(long respuesta) {
+    public void setRespuesta(String respuesta) {
         Respuesta = respuesta;
     }
 }

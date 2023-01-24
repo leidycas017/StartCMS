@@ -1,17 +1,28 @@
 package com.bytecode.startcms.repository;
 
+
+import com.bytecode.startcms.mapper.GrupoMapper;
 import com.bytecode.startcms.model.Grupo;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
-import java.awt.print.Pageable;
+
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+
+import javax.sql.DataSource;
 import java.util.List;
 
-@Repository
+//@Repository
 public class GrupoRepository implements GrupoRep{
     @Autowired
+    private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
+
+    @PostConstruct
+    public void postConstruct(){
+        jdbcTemplate = new JdbcTemplate(dataSource);
+    }
 
     @Override
     public boolean save(Grupo grupo) {
@@ -40,11 +51,21 @@ public class GrupoRepository implements GrupoRep{
 
     @Override
     public List<Grupo> findAll(Pageable pageable) {
-        return null;
+        return jdbcTemplate.query("select * from grupo", new GrupoMapper());
     }
 
     @Override
     public Grupo findById(int Id) {
-        return null;
+        Object[] params = new Object[] {Id};
+        return jdbcTemplate.queryForObject("select * from grupo where IdGrupo = ?",
+                params, new GrupoMapper());
+    }
+
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 }

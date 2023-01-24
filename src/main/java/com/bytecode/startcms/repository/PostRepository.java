@@ -1,17 +1,27 @@
 package com.bytecode.startcms.repository;
 
+import com.bytecode.startcms.mapper.PostMapper;
 import com.bytecode.startcms.model.Post;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.awt.print.Pageable;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+
+import javax.sql.DataSource;
 import java.util.List;
 
 @Repository
 public class PostRepository implements PostRep{
     @Autowired
+    private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
+
+    @PostConstruct
+    public void postConstruct(){
+        jdbcTemplate = new JdbcTemplate(dataSource);
+    }
 
     @Override
     public boolean save(Post post) {
@@ -40,11 +50,21 @@ public class PostRepository implements PostRep{
 
     @Override
     public List<Post> findAll(Pageable pageable) {
-        return null;
+        return jdbcTemplate.query("select * from post", new PostMapper());
     }
 
     @Override
     public Post findById(int Id) {
-        return null;
+        Object[] params = new Object[] {Id};
+        return jdbcTemplate.queryForObject("select * from post where IdPost = ?",
+                params, new PostMapper());
+    }
+
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 }

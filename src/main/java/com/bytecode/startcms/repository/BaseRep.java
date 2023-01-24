@@ -1,6 +1,6 @@
 package com.bytecode.startcms.repository;
 
-import java.awt.print.Pageable;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import java.util.List;
 
 public interface BaseRep<T> {

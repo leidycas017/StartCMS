@@ -1,6 +1,8 @@
 package com.bytecode.startcms.model;
 
 public class GrupoPermiso {
+
+    private long IdGrupoPermiso;
     private long IdGrupo;
     private long IdPermiso;
 
@@ -18,5 +20,13 @@ public class GrupoPermiso {
 
     public void setIdPermiso(long idPermiso) {
         IdPermiso = idPermiso;
+    }
+
+    public long getIdGrupoPermiso() {
+        return IdGrupoPermiso;
+    }
+
+    public void setIdGrupoPermiso(long idGrupoPermiso) {
+        IdGrupoPermiso = idGrupoPermiso;
     }
 }

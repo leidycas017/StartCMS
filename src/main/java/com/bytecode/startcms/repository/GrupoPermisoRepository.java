@@ -2,18 +2,33 @@ package com.bytecode.startcms.repository;
 
 
 
+import com.bytecode.startcms.mapper.ContenidoMapper;
+import com.bytecode.startcms.mapper.GrupoPermisoMapper;
+import com.bytecode.startcms.model.Contenido;
 import com.bytecode.startcms.model.GrupoPermiso;
+import jakarta.annotation.PostConstruct;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.awt.print.Pageable;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+
+import javax.sql.DataSource;
 import java.util.List;
 
-@Repository
+//@Repository
 public class GrupoPermisoRepository  implements GrupoPermisoRep{
+    private Log logger = LogFactory.getLog(getClass());
     @Autowired
+    private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
+
+    @PostConstruct
+    public void postConstruct(){
+        jdbcTemplate = new JdbcTemplate(dataSource);
+    }
 
     @Override
     public boolean save(GrupoPermiso grupoPermiso) {
@@ -41,12 +56,22 @@ public class GrupoPermisoRepository  implements GrupoPermisoRep{
     }
 
     @Override
-    public List<GrupoPermiso> findAll(Pageable pageable) {
-        return null;
+    public GrupoPermiso findById(int Id) {
+        Object[] params = new Object[] {Id};
+        return jdbcTemplate.queryForObject("select * from grupo_permiso where IdGrupoPermiso = ?",
+                params, new GrupoPermisoMapper());
     }
 
     @Override
-    public GrupoPermiso findById(int Id) {
-        return null;
+    public List<GrupoPermiso> findAll(Pageable pageable) {
+        return jdbcTemplate.query("select * from grupo_permiso", new GrupoPermisoMapper());
+    }
+
+    public JdbcTemplate getJdbcTemplate() {
+        return jdbcTemplate;
+    }
+
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 }

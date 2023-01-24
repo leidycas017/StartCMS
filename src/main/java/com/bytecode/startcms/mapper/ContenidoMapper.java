@@ -14,7 +14,7 @@ public class ContenidoMapper implements RowMapper<Contenido> {
         contenido.setContenido(rs.getString("Contenido"));
         contenido.setIdContenido(rs.getInt("IdContenido"));
         contenido.setIdPost(rs.getInt("IdPost"));
-        contenido.setTipo(rs.getString("IdTipo"));
+        contenido.setTipo(rs.getString("Tipo"));
         return contenido;
     }
 }
