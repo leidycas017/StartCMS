@@ -18,7 +18,7 @@ import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.P
 import javax.sql.DataSource;
 import java.util.List;
 
-//@Repository
+@Repository
 public class GrupoPermisoRepository  implements GrupoPermisoRep{
     private Log logger = LogFactory.getLog(getClass());
     @Autowired

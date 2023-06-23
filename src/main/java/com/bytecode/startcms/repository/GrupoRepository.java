@@ -9,11 +9,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
 
-//@Repository
+@Repository
 public class GrupoRepository implements GrupoRep{
     @Autowired
     private DataSource dataSource;

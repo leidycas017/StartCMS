@@ -10,11 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
 
-//@Repository
+@Repository
 public class ContenidoRepository implements ContenidoRep {
     private Log logger = LogFactory.getLog(getClass());
     @Autowired

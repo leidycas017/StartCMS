@@ -16,7 +16,7 @@ import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.P
 import javax.sql.DataSource;
 import java.util.List;
 
-//@Repository
+@Repository
 public class ComentarioRepository implements ComentarioRep {
     private Log logger = LogFactory.getLog(getClass());
     @Autowired

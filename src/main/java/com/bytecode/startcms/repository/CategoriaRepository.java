@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import java.util.List;
 
-//@Repository
+@Repository
 public class CategoriaRepository implements CategoriaRep{
     private Log logger = LogFactory.getLog(getClass());
     @Autowired

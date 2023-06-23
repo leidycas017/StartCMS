@@ -15,9 +15,9 @@ public class TestDatabaseConfiguration {
     public DataSource getDtaSource(){
         DriverManagerDataSource dataSoruce = new DriverManagerDataSource();
         dataSoruce.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSoruce.setUrl("jdbc:mysql://localhost:3306/test_blog");
-        dataSoruce.setUsername("bytecode");
-        dataSoruce.setPassword("root1234");
+        dataSoruce.setUrl("jdbc:mysql://localhost:3306/test_blog?autoReconnect=true&useSSL=false");
+        dataSoruce.setUsername("camilo");
+        dataSoruce.setPassword("k9-!nCpJ@Z-F]2Rl");
         return dataSoruce;
     }
 
