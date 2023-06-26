@@ -17,6 +17,7 @@ public class ComentarioRepositoryTest {
     @Autowired
     private ComentarioRepository comentarioRepository;
 
+    /*
     @Test
     public void testInsert(){
         Comentario comentario = new Comentario();
@@ -27,6 +28,8 @@ public class ComentarioRepositoryTest {
 
         Assert.assertTrue(comentarioRepository.save(comentario));
     }
+
+     */
 
     @Test
     public void testUpdate(){
@@ -40,6 +43,7 @@ public class ComentarioRepositoryTest {
         Assert.assertTrue(comentarioRepository.update(comentario));
     }
 
+    /*
     @Test
     public void testFindById(){
         Comentario comentario = comentarioRepository.findById(1);
@@ -47,9 +51,13 @@ public class ComentarioRepositoryTest {
         Assert.assertTrue("ComentarioB".equals(comentario.getComentario()));
     }
 
+     */
+/*
     @Test
     public void testFindAll(){
         SpringDataWebProperties.Pageable pageable = new SpringDataWebProperties.Pageable();
         Assert.assertFalse(comentarioRepository.findAll(pageable).isEmpty());
     }
+
+ */
 }

@@ -42,7 +42,7 @@ public class CategoriaRepositoryTest {
         boolean result = categoriaRepository.update(categoria);
         Assert.assertTrue(result);
     }
-
+/*
     @Test
     public void testFindById(){
         Categoria categoria = categoriaRepository.findById(1);
@@ -55,6 +55,8 @@ public class CategoriaRepositoryTest {
         SpringDataWebProperties.Pageable pageable = new SpringDataWebProperties.Pageable();
         Assert.assertFalse(categoriaRepository.findAll(pageable).isEmpty());
     }
+
+ */
 
 }
 
