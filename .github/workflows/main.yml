@@ -3,7 +3,7 @@ name: Java Maven CI
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
