@@ -1,7 +1,8 @@
-package com.bytecode.startcms.repository;
+package com.bytecode.startcms;
 
 import com.bytecode.startcms.component.TestDatabaseConfiguration;
 import com.bytecode.startcms.model.Grupo;
+import com.bytecode.startcms.repository.GrupoRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

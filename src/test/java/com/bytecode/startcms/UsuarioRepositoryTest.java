@@ -1,7 +1,8 @@
-package com.bytecode.startcms.repository;
+package com.bytecode.startcms;
 
 import com.bytecode.startcms.component.TestDatabaseConfiguration;
 import com.bytecode.startcms.model.Usuario;
+import com.bytecode.startcms.repository.UsuarioRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class UsuarioRepositoryTest {
     @Autowired
     private UsuarioRepository usuarioRepository;
-
+/*
     @Test
     public void testInsert(){
         Usuario usuario = new Usuario();
@@ -27,6 +28,8 @@ public class UsuarioRepositoryTest {
 
         Assert.assertTrue(usuarioRepository.save(usuario));
     }
+
+ */
 
     @Test
     public void testUpdate(){

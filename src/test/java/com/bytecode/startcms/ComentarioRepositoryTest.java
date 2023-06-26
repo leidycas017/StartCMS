@@ -1,12 +1,12 @@
-package com.bytecode.startcms.repository;
+package com.bytecode.startcms;
 
 import com.bytecode.startcms.component.TestDatabaseConfiguration;
 import com.bytecode.startcms.model.Comentario;
+import com.bytecode.startcms.repository.ComentarioRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 

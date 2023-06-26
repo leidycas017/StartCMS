@@ -1,7 +1,8 @@
-package com.bytecode.startcms.repository;
+package com.bytecode.startcms;
 
 import com.bytecode.startcms.component.TestDatabaseConfiguration;
 import com.bytecode.startcms.model.Permiso;
+import com.bytecode.startcms.repository.PermisoRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
